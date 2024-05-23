@@ -1,0 +1,36 @@
+---
+interface Props {
+  title: string;
+  tools: string[];
+  srcImg: string;
+  body: string;
+  hrefCode: string;
+  hrefView: string;
+}
+
+const { hrefCode, hrefView, srcImg, title, tools, body } = Astro.props;
+---
+
+<article class="w-96 relative rounded-3xl">
+  <img src={srcImg} alt="imagen de un proyecto" class="rounded-3xl" />
+  <div
+    class="absolute p-5 top-0 h-full bg-gradient-to-b from-transparent to-slate-900 flex flex-col justify-end rounded-2xl"
+  >
+    <h3 class="text-lg font-bold">{title}</h3>
+    <ul>
+      {
+        tools.map((tool) => {
+          <li class="">{tool}</li>;
+        })
+      }
+    </ul>
+    <p>
+      {body}
+    </p>
+    <div>
+      <a href={hrefCode} target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-slate-700 rounded-3xl">Codigo</a>
+      <a href={hrefView} target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-slate-700 rounded-3xl">Ver</a>
+    </div>
+  </div>
+</article>
+<style></style>

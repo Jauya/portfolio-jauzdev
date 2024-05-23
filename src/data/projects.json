@@ -1,0 +1,10 @@
+[
+  {
+    "title": "Acortador de links",
+    "tools": ["React", "Redis", "Zustand"],
+    "body": "Usando la tecnologia redis pude crear un acortador de links rapido y eficiente en el cual se visualizaran directamente los clicks dados en el enlace generado por el usuario",
+    "srcImg": "/projects/project-1.png",
+    "hrefCode": "",
+    "hrefView": ""
+  }
+]
