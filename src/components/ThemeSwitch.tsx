@@ -18,29 +18,39 @@ export default function ThemeSwitch() {
 
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
-    if (savedTheme) {
-      setIsDark(savedTheme === "dark");
-    }
-    if (savedTheme == "light") {
-      goToAndStop(430, true);
-      document.documentElement.classList.add("dark");
-    }else{
+    if (!savedTheme){
+      localStorage.setItem("theme","dark")
       goToAndStop(216, true);
-      document.documentElement.classList.remove("dark");
+      setIsDark(true);
+    }else{
+      if (savedTheme == "light") {
+        //Set in light
+        setIsDark(false);
+        goToAndStop(430, true);
+        document.documentElement.classList.add("dark");
+      }else{
+        //Set in Dark
+        setIsDark(true);
+        goToAndStop(216, true);
+        document.documentElement.classList.remove("dark");
+      }
     }
   }, []);
 
   const toggleTheme = () => {
     if (!isDark) {
+      //Change to Dark Mode
+      setIsDark(true)
       document.documentElement.classList.remove("dark");
       playSegments([30, 216], true);
       localStorage.setItem("theme", "dark");
     } else {
+      //Change to Light Mode
+      setIsDark(false)
       document.documentElement.classList.add("dark");
       playSegments([280, 430], true);
       localStorage.setItem("theme", "light");
     }
-    setIsDark(!isDark);
   };
 
   return <button onClick={toggleTheme}>{View}</button>;
