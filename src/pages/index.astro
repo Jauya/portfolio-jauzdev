@@ -1,5 +1,5 @@
 ---
-import { ArrowUpRight, GitHub, Linkedin, Mail, Phone } from "react-feather";
+import { ArrowRight, ArrowUpRight, GitHub, Linkedin, Mail } from "react-feather";
 import Layout from "../layouts/Layout.astro";
 import LogoSlider from "../components/LogoSlider.astro";
 import {
@@ -17,72 +17,86 @@ import {
 } from "../../public/skills";
 import CopyButton from "../components/CopyButton";
 import ThemeSwitch from "../components/ThemeSwitch";
+import { proyectos, sobreMi} from "../data";
+import {FormEmail} from "../components/FormEmail"
 ---
-<Layout title="Portafolio - Jauya ">
+<Layout title="Portafolio - Jauya" transition:animate="fade">
   <div class="bg-noise"></div>
   <main
-    class="flex xl:flex-row flex-col gap-4 p-4 m-4 xl:h-[870px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
-    transition:animate="fade"
+  class="flex xl:flex-row flex-col gap-4 p-4 xl:h-[96vh] xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
   >
-    <div class="flex flex-col xl:w-4/5 gap-4">
+  <div class="flex flex-col xl:w-4/5 gap-4">
       <div class="flex xl:h-1/3 gap-4">
-        <div class="flex flex-col justify-center gap-4 section w-full xl:w-2/4 md:!p-16 !p-14 max-sm:h-48">
+        <div class="flex flex-col justify-center gap-4 section w-full xl:w-2/4 md:!p-16 !p-14 md:h-auto sm:h-60 h-56">
           <p class="font-medium md:text-3xl text-xl dark:text-[#1c1c1c] text-[#c3c3c2]">Hola, Soy Fernando <span class="font-light">—</span></p>
           <h2 class="font-medium md:text-2xl text-lg dark:text-[#8a949e]">Desarrollador FullStack</h2>
         </div>
-        <div class="section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden"><img src="/projects/shortenerurl.webp" class="absolute" alt="shortener url - proyecto 1"></div>
-        <div class="section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden"><img src="/projects/ecommerce.webp" class="absolute" alt="ecommerce - proyecto 2"></div>
+        <div class="group section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden">
+          <img src={proyectos[0].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 1">
+          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+            <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[0].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
+          </div>
+        </div>
+        <div class="group section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden">
+          <img src={proyectos[1].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 2">
+          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+            <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[1].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
+          </div>
+        </div>
       </div>
       <div class="flex xl:h-1/3 gap-4">
         <img
-          src="/img-face.jpg"
+          src={sobreMi.imgUrl}
           class="border border-[#323030] dark:border-[#cfd2d5] rounded-[1.75rem] xl:w-auto w-64 aspect-square max-md:hidden"
           alt="foto de Fernando Jauya Diaz"
         />
         <a
           href="/sobre-mi"
-          class="flex flex-col sm:gap-6 gap-4 section w-full xl:w-3/6 max-md:h-48 relative group hover:bg-[#1f1e1e]"
+          class="flex flex-col sm:gap-6 gap-4 section w-full xl:w-3/6 md:h-auto sm:h-60 h-56 relative group hover:bg-[#1f1e1e]"
         >
           <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">
             SOBRE MÍ
           </h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl pr-14">
-            Apasionado por el diseño web, listo para desafíos y soluciones
-            innovadoras.
+            {sobreMi.short}
           </p>
           <span
             class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110"
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
-        <div class="section w-2/6 max-xl:hidden flex justify-center items-center relative overflow-hidden"><img src="/projects/chat.webp" class="absolute" alt="chat - proyecto 3"></div>
+        <div class="group section w-2/6 max-xl:hidden flex justify-center items-center relative overflow-hidden">
+          <img src={proyectos[2].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 3">
+          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+            <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[2].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
+          </div>
+        </div>
       </div>
       <div class="xl:hidden flex flex-col gap-4">
         <div class="flex flex-col md:flex-row gap-4">
-          <div class="section md:w-1/2 h-[250px]"><img src="/projects/shortenerurl.webp" alt="shortener url - proyecto 1"></div>
-          <div class="section md:w-1/2 h-[250px]"><img src="/projects/ecommerce.webp" alt="ecommerce - proyecto 2"></div>
+          <div class="section md:w-1/2 h-64 relative overflow-hidden">
+            <img src={proyectos[0].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="shortener url - proyecto 1">
+          </div>
+          <div class="section md:w-1/2 h-64 relative overflow-hidden">
+            <img src={proyectos[1].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="ecommerce - proyecto 2">
+          </div>
         </div>
 
-        <div class="section h-[250px]">Proyecto 3</div>
+        <div class="section h-64 relative overflow-hidden">
+          <img src={proyectos[2].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="chat - proyecto 3">
+        </div>
       </div>
 
       <div class="flex flex-col-reverse xl:flex-row xl:h-1/3 gap-4">
         <div
-          class="flex flex-col gap-6 section w-full xl:w-5/12 xl:h-full h-48"
+          class="flex flex-col justify-center gap-6 section w-full xl:w-1/2 xl:h-full h-64"
         >
-          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">CONTACTO</h2>
-          <div class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl flex flex-col gap-2">
-            <div class="flex gap-2">
-              <Phone /><p>+51 922553645</p>
-            </div>
-            <div class="flex gap-2">
-              <Mail /><p>fernandojauya30@gmail.com</p>
-            </div>
-          </div>
+          <h2 class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">Recibe el enlace a mi CV</h2>
+          <FormEmail client:load />
         </div>
         <a
           href="/proyectos"
-          class="section h-48 flex flex-col gap-4 relative sm:hidden group hover:bg-[#1f1e1e]"
+          class="section h-56 flex flex-col gap-4 relative sm:hidden group hover:bg-[#1f1e1e]"
         >
           <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">PROYECTOS</h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">
@@ -93,7 +107,7 @@ import ThemeSwitch from "../components/ThemeSwitch";
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
-        <div class="flex gap-4 xl:w-7/12">
+        <div class="flex gap-4 xl:w-1/2">
           <div class="flex flex-col gap-6 justify-center section text-2xl xl:w-7/12 sm:w-3/5 w-[55%]">
             <h2 class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">Conocimientos en</h2>
             <LogoSlider
@@ -125,25 +139,25 @@ import ThemeSwitch from "../components/ThemeSwitch";
           href="https://github.com/Jauya"
           target="_blank"
           rel="noopener noreferrer"
-          class="group transition-all duration-100 ease-linear bg-[#181818] hover:bg-[#343e9c] dark:bg-[#fffefe] dark:hover:bg-[#5564eb] rounded-3xl border border-[#323030] hover:border-[#111a77] dark:border-[#dee0e4] dark:hover:border-[#5564eb] flex justify-center items-center w-[33.33%] aspect-square"
+          class="group transition-colors duration-100 ease-linear bg-[#181818] hover:bg-[#343e9c] dark:bg-[#fffefe] dark:hover:bg-[#5564eb] rounded-3xl border border-[#323030] hover:border-[#111a77] dark:border-[#dee0e4] dark:hover:border-[#5564eb] flex justify-center items-center w-[33.33%] aspect-square"
           ><GitHub className="transition-all duration-100 ease-linear group text-white dark:text-black dark:group-hover:text-white" width="25px" height="25px" /></a
         >
         <a
           href="https://www.linkedin.com/in/fernando-jauya-d%C3%ADaz-229996233/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group transition-all duration-100 ease-linear bg-[#181818] hover:bg-[#0a66c2] dark:bg-[#fffefe] dark:hover:bg-[#0a67c3] rounded-3xl border border-[#323030] hover:border-[#23486c] dark:border-[#dee0e4] dark:hover:border-[#0a67c3] flex justify-center items-center w-[33.33%] aspect-square"
+          class="group transition-colors duration-100 ease-linear bg-[#181818] hover:bg-[#0a66c2] dark:bg-[#fffefe] dark:hover:bg-[#0a67c3] rounded-3xl border border-[#323030] hover:border-[#23486c] dark:border-[#dee0e4] dark:hover:border-[#0a67c3] flex justify-center items-center w-[33.33%] aspect-square"
           ><Linkedin className="text-white dark:text-black dark:group-hover:text-white" width="25px" height="25px" /></a
         >
         <a
           href="mailto:fernandojauya30@gmail.com"
           target="_blank"
           rel="noopener noreferrer"
-          class="group transition-all duration-100 ease-linear bg-[#181818] hover:bg-[#9c3434] dark:bg-[#fffefe] dark:hover:bg-[#ea4234] rounded-3xl border border-[#323030] hover:border-[#501a1a] dark:border-[#dee0e4] dark:hover:border-[#ea4234] flex justify-center items-center w-[33.33%] aspect-square"
+          class="group transition-colors duration-100 ease-linear bg-[#181818] hover:bg-[#9c3434] dark:bg-[#fffefe] dark:hover:bg-[#ea4234] rounded-3xl border border-[#323030] hover:border-[#501a1a] dark:border-[#dee0e4] dark:hover:border-[#ea4234] flex justify-center items-center w-[33.33%] aspect-square"
           ><Mail className="text-white dark:text-black dark:group-hover:text-white" width="25px" height="25px" /></a
         >
       </div>
-      <div class="xl:h-full md:h-[300px] sm:h-[500px] h-48 flex flex-col md:flex-row xl:flex-col gap-4">
+      <div class="xl:h-full md:h-[300px] sm:h-[500px] h-full flex flex-col md:flex-row xl:flex-col gap-4">
         <a href="/proyectos" class="section h-full md:w-1/2 xl:w-full sm:flex flex-col gap-4 relative hidden group hover:bg-[#1f1e1e]">
           <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">PROYECTOS</h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">
@@ -154,7 +168,7 @@ import ThemeSwitch from "../components/ThemeSwitch";
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
-        <div class="flex flex-col justify-center section xl:h-2/3 md:w-1/2 w-full h-full xl:w-full gap-5">
+        <div class="flex flex-col justify-center section xl:h-2/3 md:h-full h-60 xl:w-full md:w-1/2 w-full gap-6">
           <p class="font-medium text-[#c4c5c4] dark:text-[#1c1c1c] md:text-2xl text-xl">
             ¿Tienes algún proyecto en mente?
           </p>

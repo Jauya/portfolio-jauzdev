@@ -15,7 +15,7 @@ export default function CopyButton({ textToCopy }: { textToCopy: string }) {
 
   return (
     <button
-      className={`text-[#bfbebf] dark:text-[#1e1f1e] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-3 hover:bg-[#292a2a] dark:hover:bg-[#d9dade] ${
+      className={`text-[#bfbebf] dark:text-[#1e1f1e] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-4 hover:bg-[#292a2a] dark:hover:bg-[#d9dade] transition-colors duration-100 ${
         copySuccess ? "bg-[#292a2a] dark:bg-[#e3e6e6]" : "bg-[#262727] dark:bg-[#eff1f1]"
       }`}
       onClick={copyToClipboard}

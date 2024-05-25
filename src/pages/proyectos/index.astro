@@ -1,19 +1,30 @@
 ---
-import { X } from "react-feather";
+import ProjectCard from "../../components/ProjectCard.astro";
 import Layout from "../../layouts/Layout.astro";
+import { X } from "react-feather";
+import { proyectos } from "../../data";
 ---
 
-<Layout title="Proyectos">
+<Layout title="Proyectos" transition:animate="fade">
+  <div class="bg-noise"></div>
   <main
-    class="flex xl:flex-row flex-col gap-4 p-4 m-4 xl:h-[870px] bg-[#0c0c0c] border-2 border-white/20 rounded-3xl"
-    transition:animate="fade"
+    class="flex flex-col gap-4 p-4 h-full min-h-full bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
   >
-    <div class="w-full flex flex-col items-center p-4 gap-4">
+    <div class="mx-auto flex flex-col items-center p-4 gap-4">
       <a
         href="/"
         class="rounded-full border-2 border-[#333232] p-3 hover:bg-[#1c1d1d] transition-colors duration-300 ease-in-out"
         ><X /></a
       >
+    </div>
+    <div class="mx-auto max-w-3xl flex flex-wrap">
+      {
+        proyectos.map((proyecto) => (
+          <div class="w-1/2 flex justify-center items-center p-4">
+            <ProjectCard {...proyecto} />
+          </div>
+        ))
+      }
     </div>
   </main>
 </Layout>

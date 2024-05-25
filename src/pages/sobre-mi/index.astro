@@ -2,10 +2,11 @@
 import Layout from "../../layouts/Layout.astro";
 import { X } from "react-feather";
 ---
-<Layout title="Sobre mí">
+<Layout title="Sobre mí" transition:animate="fade">
+  <div class="bg-noise"></div>
   <main
-    class="flex xl:flex-row flex-col gap-4 p-4 m-4 xl:h-[870px] bg-[#0c0c0c] border-2 border-white/20 rounded-3xl"
-    transition:animate="fade"
+  class="flex xl:flex-row flex-col gap-4 p-4 xl:h-[96vh] xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
+  
   >
     <div class="w-full flex flex-col items-center p-4 gap-4">
       <a
