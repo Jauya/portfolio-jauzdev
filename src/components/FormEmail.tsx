@@ -29,7 +29,7 @@ export function FormEmail() {
       ref={form}
       onSubmit={sendEmail}
     >
-      {!success ? (
+      {success ? (
         <div className="w-full flex items-center gap-2 bg-[#262727] dark:bg-[#eef0f1] font-normal rounded-2xl px-7 py-6 transition-colors duration-100">
           <CheckCircle /> Gracias por el contacto! Estaras recibiendo un email pronto.
         </div>
