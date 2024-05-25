@@ -8,7 +8,7 @@ interface IProyecto {
 }
 
 export const sobreMi = {
-  imgUrl: "https://uc66a2f71b4f310c3475914efb88.dl.dropboxusercontent.com/cd/0/inline/CTjh1vQn0h3dz77W3RiyKr-YbHNzKr6wlqvVE6k1Lzio52oSTPmgoqMHdyHlB8fWGTwtYrsvOIAdFWPRX0X82x0IsCb4F_gGNjxr2K_VLAhaSf4Pim-htDs5-ucmX-QnaxVfSNTbs_-Kx8zbh5jFCMhz/file#",
+  imgUrl: "img-face.jpg",
   short: "Apasionado por el diseño web, listo para desafíos y soluciones innovadoras.",
   long: "",
 };
