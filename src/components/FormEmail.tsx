@@ -29,10 +29,9 @@ export function FormEmail() {
       ref={form}
       onSubmit={sendEmail}
     >
-      {success ? (
-        <div>
-          <CheckCircle /> Gracias por el contacto! Estaras reciviendo un email
-          pronto
+      {!success ? (
+        <div className="w-full flex items-center gap-2 bg-[#262727] dark:bg-[#eef0f1] font-normal rounded-2xl px-7 py-6 transition-colors duration-100">
+          <CheckCircle /> Gracias por el contacto! Estaras recibiendo un email pronto.
         </div>
       ) : (
         <>
@@ -47,7 +46,7 @@ export function FormEmail() {
           <input
             type="submit"
             value="Enviar"
-            className="w-full md:w-40 bg-[#262727] text-[#bfbebf] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-4 hover:bg-[#292a2a] dark:hover:bg-[#d9dade] transition-colors duration-100"
+            className="w-full md:w-40 bg-[#262727] text-[#bfbebf] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-4 hover:bg-[#292a2a] transition-colors duration-100"
           />
         </>
       )}
