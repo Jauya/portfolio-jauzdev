@@ -10,8 +10,8 @@ interface IProyecto {
 
 export const sobreMi = {
   pageUrl: "https://jauzdev.space/",
-  srcPageImg: "img-portfolio.webp",
-  srcFaceImg: "img-face.webp",
+  srcPageImg: "/img-portfolio.webp",
+  srcFaceImg: "/img-face.webp",
   metaDescription: "Desarrollador web especializado en React-Laravel Apps. Descubre mis proyectos destacados, y cómo puedo llevar tu visión digital a la realidad.",
   shortDescription: "Apasionado por el diseño web, listo para desafíos y soluciones innovadoras.",
   longDescription: "Nací y crecí en Ica, Perú. Desde que era niño, he sentido una pasión por el arte y el diseño. Me fascinan los colores vibrantes y los detalles intrincados de todo lo que me rodeaba, lo que me inspiró a aprender diseño web y adentrarme en el mundo de la experiencia de usuario (UX)",
