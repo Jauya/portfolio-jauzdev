@@ -3,24 +3,26 @@ import ProjectCard from "../../components/ProjectCard.astro";
 import Layout from "../../layouts/Layout.astro";
 import { X } from "react-feather";
 import { proyectos } from "../../data";
+import ThemeSwitch from "../../components/ThemeSwitch";
 ---
 
-<Layout title="Proyectos" transition:animate="fade">
+<Layout title="Proyectos" main={false} transition:animate="fade">
   <div class="bg-noise"></div>
+  <ThemeSwitch client:load isHidden={true} />
   <main
-    class="flex flex-col gap-4 p-4 h-full min-h-full bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
+    class="flex flex-col gap-4 p-4 md:p-10 md:pt-4 md:pb-20 h-full xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
   >
-    <div class="mx-auto flex flex-col items-center p-4 gap-4">
+    <div class="mx-auto flex flex-col items-center p-7 md:mb-12 mb-4">
       <a
         href="/"
-        class="rounded-full border-2 border-[#333232] p-3 hover:bg-[#1c1d1d] transition-colors duration-300 ease-in-out"
-        ><X /></a
+        class="rounded-full border-2 border-[#323030] dark:border-[#cfd2d5] flex justify-center items-center w-12 h-12 p-3 hover:bg-[#1c1d1d] dark:hover:bg-[#fbfdfe] transition-colors duration-300"
+        ><X className="text-[#cccdcd] dark:text-[#1e1f1e]" /></a
       >
     </div>
-    <div class="mx-auto max-w-3xl flex flex-wrap">
+    <div class="mx-auto max-w-6xl grid md:grid-cols-2 grid-cols-1 md:gap-x-8 md:gap-y-10 gap-x-4 gap-y-8">
       {
         proyectos.map((proyecto) => (
-          <div class="w-1/2 flex justify-center items-center p-4">
+          <div class="w-full flex justify-center items-center">
             <ProjectCard {...proyecto} />
           </div>
         ))

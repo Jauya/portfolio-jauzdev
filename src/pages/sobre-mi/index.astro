@@ -1,19 +1,108 @@
 ---
+import CarouselPhotos from "../../components/CarouselPhotos";
+import CarouselSkillful from "../../components/CarouselSkillful";
+import CopyButton from "../../components/CopyButton";
+import LogoSlider from "../../components/LogoSlider.astro";
+import ThemeSwitch from "../../components/ThemeSwitch";
+import { sobreMi } from "../../data";
 import Layout from "../../layouts/Layout.astro";
 import { X } from "react-feather";
 ---
-<Layout title="Sobre mí" transition:animate="fade">
+
+<Layout title="Sobre mí" main={false} transition:animate="fade">
   <div class="bg-noise"></div>
+  <ThemeSwitch client:load isHidden={true} />
   <main
-  class="flex xl:flex-row flex-col gap-4 p-4 xl:h-[96vh] xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
-  
+    class="flex flex-col gap-4 p-4 md:p-10 md:pt-4 md:pb-20 h-full xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
   >
-    <div class="w-full flex flex-col items-center p-4 gap-4">
+    <div class="mx-auto flex flex-col items-center p-7 md:mb-12 mb-4">
       <a
         href="/"
-        class="rounded-full border-2 border-[#333232] p-3 hover:bg-[#1c1d1d] transition-colors duration-300 ease-in-out"
-        ><X /></a
+        class="rounded-full border-2 border-[#323030] dark:border-[#cfd2d5] flex justify-center items-center w-12 h-12 p-3 hover:bg-[#1c1d1d] dark:hover:bg-[#fbfdfe] transition-colors duration-300"
+        ><X className="text-[#cccdcd] dark:text-[#1e1f1e]" /></a
       >
+    </div>
+    <div
+      class="mx-auto max-w-6xl grid md:grid-cols-2 grid-cols-1 gap-4 min-h-[900px]"
+    >
+      <div class="grid grid-cols-1 gap-4">
+        <div class="flex flex-col gap-6 justify-center section">
+          <h1
+            class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-4xl text-3xl"
+          >
+            Sobre mi 🤔?
+          </h1>
+          <hr class="border-[#242525]" />
+          <div class="grid grid-cols-1 gap-4">
+            <h2
+              class="font-medium text-[#656565] dark:text-[#8a949e] text-sm tracking-widest"
+            >
+              MI HISTORIA
+            </h2>
+            <p class="text-xl mb-4 tracking-wide">
+              {sobreMi.longDescription}
+            </p>
+            <h2
+              class="font-medium text-[#656565] dark:text-[#8a949e] text-sm tracking-widest"
+            >
+              LO QUE HAGO ACTUALMENTE
+            </h2>
+            <p class="text-xl tracking-wide">
+              En la actualidad, estoy enfocado en aprender y desarrollarme en el
+              campo del diseño y desarrollo web.
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col gap-6 section min-h-64">
+          <h2
+            class="font-medium text-[#656565] dark:text-[#8a949e] text-base tracking-widest"
+          >
+            EXPERIENCIA
+          </h2>
+          <p class="section text-xl h-full flex items-center">
+            Aunque no tengo experiencia profesional, estoy decidido a aprender y
+            crecer en esta área. ¡Vamos a crear algo increíble juntos!
+          </p>
+        </div>
+      </div>
+      <div class="grid grid-cols-1 gap-4">
+        <div class="flex flex-col md:gap-6 gap-4 section sm:h-64 h-72 md:h-full">
+          <h2
+            class="font-medium text-[#656565] dark:text-[#8a949e] text-base tracking-widest"
+          >
+            LO QUE SÉ HACER
+          </h2>
+          <!-- Aqui va en lo que eres habil :3 -->
+          <CarouselSkillful client:load />
+        </div>
+        <!-- DevStack - Section -->
+        <div class="flex flex-col gap-6 justify-center section">
+          <h2
+            class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl pt-4"
+          >
+            Stack en uso
+          </h2>
+          <LogoSlider />
+        </div>
+        <div class="grid xl:grid-cols-2 gap-4">
+          <div>
+            <CarouselPhotos client:load />
+          </div>
+          <!-- CopyEmail - Section -->
+          <div class="flex flex-col justify-center section gap-6 min-h-64">
+            <p
+              class="font-medium text-[#c4c5c4] dark:text-[#1c1c1c] md:text-2xl text-xl"
+            >
+              ¿Algún proyecto en mente?
+            </p>
+            <CopyButton client:load textToCopy="fernandojauya30@gmail.com" />
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 </Layout>
+<style>
+  .carousel {
+  }
+</style>

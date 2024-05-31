@@ -5,7 +5,9 @@ import { CheckCircle } from "react-feather";
 export function FormEmail() {
   const form = useRef(null);
   const [success, setSuccess] = useState(false);
+  const [loading, setLoading] = useState(false);
   const sendEmail: FormEventHandler<HTMLFormElement> = (e) => {
+    setLoading(true);
     e.preventDefault();
     if (form.current) {
       emailjs
@@ -14,6 +16,7 @@ export function FormEmail() {
         })
         .then(
           () => {
+            setLoading(false);
             setSuccess(true);
           },
           (error) => {
@@ -31,7 +34,8 @@ export function FormEmail() {
     >
       {success ? (
         <div className="w-full flex items-center gap-2 bg-[#262727] dark:bg-[#eef0f1] font-normal rounded-2xl px-7 py-6 transition-colors duration-100">
-          <CheckCircle /> Gracias por el contacto! Estaras recibiendo un email pronto.
+          <CheckCircle /> Gracias por el contacto! Estaras recibiendo un email
+          pronto.
         </div>
       ) : (
         <>
@@ -43,11 +47,12 @@ export function FormEmail() {
             required
             className="w-full md:w-full bg-transparent border-2 border-[#262727] focus:border-[#676766] dark:border-[#90908f] dark:focus:border-[#3c3e3e] placeholder:text-[#676766] outline-none rounded-2xl px-5 py-4 "
           />
-          <input
+          <button
             type="submit"
-            value="Enviar"
-            className="w-full md:w-40 bg-[#262727] text-[#bfbebf] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-4 hover:bg-[#292a2a] transition-colors duration-100"
-          />
+            className="w-full md:w-40 bg-[#262727] text-[#bfbebf] dark:text-[#e3e2e3] text-xl rounded-2xl flex justify-center items-center gap-2 px-5 py-4 hover:bg-[#2f3030] transition-colors duration-100"
+          >
+            {loading ? <div className="loader"></div> : "Enviar"}
+          </button>
         </>
       )}
     </form>

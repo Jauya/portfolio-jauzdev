@@ -2,9 +2,8 @@ import { useState, useEffect } from "react";
 import { useLottie } from "lottie-react";
 import themeSwitchAnimation from "../assets/theme-switch-animation.json";
 
-export default function ThemeSwitch() {
+export default function ThemeSwitch({isHidden=false}) {
   const [isDark, setIsDark] = useState(false);
-  const [isClient, setIsClient] = useState(false);
   const options = {
     animationData: themeSwitchAnimation,
     loop: false,
@@ -19,7 +18,6 @@ export default function ThemeSwitch() {
   }
 
   useEffect(() => {
-    setIsClient(true);
     const savedTheme = localStorage.getItem("theme");
     if (!savedTheme) {
       localStorage.setItem("theme", "dark");
@@ -55,6 +53,6 @@ export default function ThemeSwitch() {
       localStorage.setItem("theme", "light");
     }
   };
-
-  return <button onClick={toggleTheme}>{View}</button>;
+  
+  return isHidden ?"":<button onClick={toggleTheme}>{View}</button>;
 }

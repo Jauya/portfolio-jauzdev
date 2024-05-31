@@ -1,4 +1,5 @@
 ---
+import { GitHub } from 'react-feather';
 interface Props {
   title: string;
   tools: string[];
@@ -10,29 +11,31 @@ interface Props {
 
 const { hrefCode, hrefView, srcImg, title, tools, body } = Astro.props;
 ---
-
-<article class="w-96 relative rounded-3xl">
-  <img src={srcImg} alt="imagen de un proyecto" class="rounded-3xl" />
-  <div
-    class="absolute p-5 top-0 h-full bg-gradient-to-b from-transparent to-slate-900 flex flex-col justify-end rounded-2xl"
-  >
-    <h3 class="text-lg font-bold">{title}</h3>
-    <ul>
+<article class="w-full h-full">
+  <a href="" target="_blank" class="group rounded-2xl bg-[#ffffff] border border-[#e1e1e1] flex justify-center items-center aspect-[3/2]">
+    <img src={srcImg} alt="imagen de un proyecto" class="rounded-[0.75rem] w-4/5 aspect-[3/2] group-hover:scale-95 transition-transform duration-300 ease-linear" />
+  </a>
+  <div class="px-2 py-6">
+    <div class="flex justify-between items-center mb-3 gap-3">
+      <a href={hrefView} target="_blank" rel="noopener noreferrer" class="text-2xl font-medium text-[#c3c3c2] dark:text-[#1c1c1c] w-full text-nowrap title overflow-hidden">{title}</a>
+      <a href={hrefCode} target="_blank" rel="noopener noreferrer" class="group font-medium w-10 h-9 hover:w-36 flex justify-center items-center bg-[#1f1e1e] hover:bg-[#232121] transition-all duration-300 rounded-full hover:gap-1 gap-0"><GitHub className='w-5 h-5 dark:text-white'/><span class="group-hover:w-14 w-0 overflow-hidden text-nowrap transition-all duration-300 dark:text-white">Codigo</span></a>
+    </div>
+    <p class="mb-3 text-[#656565] dark:text-[#8a949e] text-justify">{body}</p>
+    <ul class="flex text-white gap-2">
       {
-        tools.map((tool) => {
-          <li class="">{tool}</li>;
-        })
+        tools.map((tool) => (
+          <li class="bg-[#151514] dark:bg-[#fefeff] text-[#cccdcd] dark:text-[#1e1f1e] border border-[#323030] dark:border-[#cfd2d5] rounded-full px-3 py-1">{tool}</li>
+        ))
       }
     </ul>
-    <p>
-      {body}
-    </p>
-    <div>
-      <a href={hrefCode} target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-slate-700 rounded-3xl">Codigo</a>
-      <a href={hrefView} target="_blank" rel="noopener noreferrer" class="px-3 py-2 bg-slate-700 rounded-3xl">Ver</a>
-    </div>
   </div>
 </article>
 <style>
-    
+    .title{
+      mask-image: linear-gradient(
+      to right,
+      rgb(0, 0, 0) 90%,
+      rgba(0, 0, 0, 0)
+    );
+    }
 </style>

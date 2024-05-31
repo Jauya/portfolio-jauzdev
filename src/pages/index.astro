@@ -2,138 +2,123 @@
 import { ArrowRight, ArrowUpRight, GitHub, Linkedin, Mail } from "react-feather";
 import Layout from "../layouts/Layout.astro";
 import LogoSlider from "../components/LogoSlider.astro";
-import {
-  html,
-  css,
-  js,
-  express,
-  mysql,
-  nextjs,
-  node,
-  postgresql,
-  prisma,
-  react,
-  redis,
-} from "../../public/skills";
 import CopyButton from "../components/CopyButton";
 import ThemeSwitch from "../components/ThemeSwitch";
 import { proyectos, sobreMi} from "../data";
 import {FormEmail} from "../components/FormEmail"
 ---
-<Layout title="Portafolio - Jauya" transition:animate="fade">
+<Layout title="Portafolio - Jauya" main={true} transition:animate="fade">
   <div class="bg-noise"></div>
   <main
   class="flex xl:flex-row flex-col gap-4 p-4 xl:h-[96vh] xl:min-h-[736px] bg-[#0c0c0c] dark:bg-[#f4f5f6] border-2 dark:border-[#cfd2d5] border-white/20 rounded-[2rem]"
   >
   <div class="flex flex-col xl:w-4/5 gap-4">
       <div class="flex xl:h-1/3 gap-4">
+        <!-- "Hello" - Section -->
         <div class="flex flex-col justify-center gap-4 section w-full xl:w-2/4 md:!p-16 !p-14 md:h-auto sm:h-60 h-56">
-          <p class="font-medium md:text-3xl text-xl dark:text-[#1c1c1c] text-[#c3c3c2]">Hola, Soy Fernando <span class="font-light">—</span></p>
-          <h2 class="font-medium md:text-2xl text-lg dark:text-[#8a949e]">Desarrollador FullStack</h2>
+          <p class="font-medium md:text-3xl text-2xl dark:text-[#1c1c1c] text-[#c3c3c2]">Hola, Soy Fernando <span class="font-light">—</span></p>
+          <h2 class="font-medium md:text-2xl text-xl dark:text-[#8a949e] text-[#656565]">Desarrollador FullStack</h2>
         </div>
+        <!-- Project 1 - Section -->
         <div class="group section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden">
-          <img src={proyectos[0].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 1">
-          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+          <img src={proyectos[0].srcMockup} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 1">
+          <a href={proyectos[0].hrefView} target="_blank" class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#151514] transition-opacity duration-300">
             <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[0].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
-          </div>
+          </a>
         </div>
+        <!-- Project 2 - Section -->
         <div class="group section w-1/4 max-xl:hidden flex justify-center items-center relative overflow-hidden">
-          <img src={proyectos[1].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 2">
-          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+          <img src={proyectos[1].srcMockup} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 2">
+          <a href={proyectos[1].hrefView} target="_blank" class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#151514] transition-opacity duration-300">
             <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[1].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
-          </div>
+          </a>
         </div>
       </div>
       <div class="flex xl:h-1/3 gap-4">
+        <!-- Photo - Section -->
         <img
-          src={sobreMi.imgUrl}
+          src={sobreMi.srcFaceImg}
           class="border border-[#323030] dark:border-[#cfd2d5] rounded-[1.75rem] xl:w-auto w-64 aspect-square max-md:hidden"
           alt="foto de Fernando Jauya Diaz"
         />
+        <!-- AboutMe - Section -->
         <a
           href="/sobre-mi"
           class="flex flex-col sm:gap-6 gap-4 section w-full xl:w-3/6 md:h-auto sm:h-60 h-56 relative group hover:bg-[#1f1e1e]"
         >
-          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">
+          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-base text-sm tracking-widest">
             SOBRE MÍ
           </h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl pr-14">
-            {sobreMi.short}
+            {sobreMi.shortDescription}
           </p>
           <span
-            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110"
+            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110 transition-transform duration-300"
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
+        <!-- Project 3 - Section -->
         <div class="group section w-2/6 max-xl:hidden flex justify-center items-center relative overflow-hidden">
-          <img src={proyectos[2].srcImg} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 3">
-          <div class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#000000cc] transition-opacity duration-300">
+          <img src={proyectos[2].srcMockup} class="absolute inset-0 w-full h-full object-cover scale-105 group-hover:scale-100 transition-transform duration-500" alt="shortener url - proyecto 3">
+          <a href={proyectos[2].hrefView} target="_blank" class="flex hover:opacity-100 opacity-0 items-end absolute inset-0 w-full h-full object-cover z-10 bg-gradient-to-b from-transparent to-[#151514] transition-opacity duration-300">
             <h2 class="w-full p-6 text-[#e9e8e8] font-medium text-lg flex justify-between gap-2 translate-y-12 group-hover:translate-y-0 transition-transform duration-300">{proyectos[2].title}<ArrowRight className="-rotate-90 group-hover:rotate-0 transition-transform duration-500"/></h2>
-          </div>
+          </a>
         </div>
       </div>
       <div class="xl:hidden flex flex-col gap-4">
         <div class="flex flex-col md:flex-row gap-4">
-          <div class="section md:w-1/2 h-64 relative overflow-hidden">
-            <img src={proyectos[0].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="shortener url - proyecto 1">
-          </div>
-          <div class="section md:w-1/2 h-64 relative overflow-hidden">
-            <img src={proyectos[1].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="ecommerce - proyecto 2">
-          </div>
+          <!-- Project 1 - Section -->
+          <a href={proyectos[0].hrefView} target="_blank" class="section md:w-1/2 h-64 relative overflow-hidden">
+            <img src={proyectos[0].srcMockup} class="absolute inset-0 w-full h-full object-cover" alt="shortener url - proyecto 1">
+          </a>
+          <!-- Project 2 - Section -->
+          <a href={proyectos[1].hrefView} target="_blank" class="section md:w-1/2 h-64 relative overflow-hidden">
+            <img src={proyectos[1].srcMockup} class="absolute inset-0 w-full h-full object-cover" alt="ecommerce - proyecto 2">
+          </a>
         </div>
-
-        <div class="section h-64 relative overflow-hidden">
-          <img src={proyectos[2].srcImg} class="absolute inset-0 w-full h-full object-cover" alt="chat - proyecto 3">
-        </div>
+        <!-- Project 3 - Section -->
+        <a href={proyectos[2].hrefView} target="_blank" class="section h-64 relative overflow-hidden">
+          <img src={proyectos[2].srcMockup} class="absolute inset-0 w-full h-full object-cover" alt="chat - proyecto 3">
+        </a>
       </div>
 
       <div class="flex flex-col-reverse xl:flex-row xl:h-1/3 gap-4">
+        <!-- CV Form - Section -->
         <div
           class="flex flex-col justify-center gap-6 section w-full xl:w-1/2 xl:h-full h-64"
         >
           <h2 class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">Recibe el enlace a mi CV</h2>
           <FormEmail client:load />
         </div>
+        <!-- Projects - Section -->
         <a
           href="/proyectos"
           class="section h-56 flex flex-col gap-4 relative sm:hidden group hover:bg-[#1f1e1e]"
         >
-          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">PROYECTOS</h2>
+          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-base text-sm tracking-widest">PROYECTOS</h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">
             Algunos de los proyectos que he desarrollado
           </p>
           <span
-            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110"
+            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110 transition-transform duration-300"
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
         <div class="flex gap-4 xl:w-1/2">
+          <!-- DevStack - Section -->
           <div class="flex flex-col gap-6 justify-center section text-2xl xl:w-7/12 sm:w-3/5 w-[55%]">
-            <h2 class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">Conocimientos en</h2>
-            <LogoSlider
-              logos={[
-                html,
-                css,
-                js,
-                express,
-                mysql,
-                nextjs,
-                node,
-                postgresql,
-                prisma,
-                react,
-                redis,
-              ]}
-            />
+            <h2 class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl pt-4">Stack en uso</h2>
+            <LogoSlider />
           </div>
+          <!-- ThemeSwitch - Section  -->
           <div class="section xl:w-5/12 sm:w-2/5 flex justify-center items-center w-[45%]">
             <ThemeSwitch client:load />
           </div>
         </div>
       </div>
     </div>
-
     <div class="xl:w-1/5 h-full flex xl:flex-col flex-col-reverse gap-4">
+      <!-- Social - Section -->
       <div class="flex gap-4 xl:gap-3 2xl:gap-4 w-full">
         <a
           href="https://github.com/Jauya"
@@ -158,16 +143,18 @@ import {FormEmail} from "../components/FormEmail"
         >
       </div>
       <div class="xl:h-full md:h-[300px] sm:h-[500px] h-full flex flex-col md:flex-row xl:flex-col gap-4">
+        <!-- Projects - Section -->
         <a href="/proyectos" class="section h-full md:w-1/2 xl:w-full sm:flex flex-col gap-4 relative hidden group hover:bg-[#1f1e1e]">
-          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-xl text-base">PROYECTOS</h2>
+          <h2 class="font-medium text-[#656565] dark:text-[#8a949e] md:text-base text-sm tracking-widest">PROYECTOS</h2>
           <p class="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-2xl text-xl">
             Algunos de los proyectos que he desarrollado
           </p>
           <span
-            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110"
+            class="absolute rounded-full border-2 border-[#333232] dark:border-[#d8dade] p-3 sm:bottom-8 sm:right-8 bottom-4 right-4 group-hover:scale-110 transition-transform duration-300"
             ><ArrowUpRight className="text-[#acacac] dark:text-[#6a7681]" /></span
           >
         </a>
+        <!-- CopyEmail - Section -->
         <div class="flex flex-col justify-center section xl:h-2/3 md:h-full h-60 xl:w-full md:w-1/2 w-full gap-6">
           <p class="font-medium text-[#c4c5c4] dark:text-[#1c1c1c] md:text-2xl text-xl">
             ¿Tienes algún proyecto en mente?
