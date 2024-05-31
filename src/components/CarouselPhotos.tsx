@@ -21,7 +21,7 @@ export default function CarouselPhotos() {
           </div>
         ))}
       </div>
-      <div className="flex absolute bottom-4 px-1 py-0.5 bg-[#151514]/60 rounded-[1.75rem] backdrop-blur-md">
+      <div className="flex absolute bottom-4 px-1 py-0.5 bg-[#151514]/40 rounded-[1.75rem] backdrop-blur-md">
         {sobreMi.interestsList.map((_, idx) => (
           <button
             key={idx}

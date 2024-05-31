@@ -12,14 +12,14 @@ export default function CarouselSkillful() {
       >
         {sobreMi.skillfulList.map((skillful, idx) => (
           <div key={idx} className="min-w-full">
-            <h3 className="font-medium text-[#c3c3c2] dark:text-[#1c1c1c] md:text-3xl text-2xl mb-2">
+            <h3 className="font-medium text-[#fffff6] dark:text-[#1c1c1c] md:text-3xl text-2xl mb-2">
               {skillful.title}
             </h3>
             <p className="text-lg">{skillful.description}</p>
           </div>
         ))}
       </div>
-      <div className="flex absolute bottom-0 px-1 py-0.5 bg-[#292928] rounded-[1.75rem]">
+      <div className="flex absolute bottom-0 px-1 py-0.5 bg-[#292928] dark:bg-[#f2f2f2] rounded-[1.75rem]">
         {sobreMi.skillfulList.map((_, idx) => (
           <button
             key={idx}
@@ -28,7 +28,7 @@ export default function CarouselSkillful() {
           >
             <span
               className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                idx == currentIndex ? "bg-white/80" : "bg-white/40"
+                idx == currentIndex ? "bg-white/80 dark:bg-black/80" : "bg-white/40 dark:bg-black/20"
               }`}
             ></span>
           </button>
